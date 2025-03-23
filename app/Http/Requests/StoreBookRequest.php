@@ -26,20 +26,26 @@ class StoreBookRequest extends FormRequest
             'author' => 'required|string|max:255',
             'price' => 'required|numeric',
         ];
-        if ($this->nullable('price')){
-            return[
-                'price'=>'maydonchami toldiring'
-            ];
-        }
-        if ($this->nullable('title')){
-            return[
-                'price'=>'maydonchami toldiring'
-            ];
-        }
-        if ($this->nullable('author')){
-            return[
-                'price'=>'maydonchami toldiring'
-            ];
-        }
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Kitob nomi majburiy.',
+            'title.string' => 'Kitob nomi faqat harflardan iborat bo‘lishi kerak.',
+            'title.max' => 'Kitob nomi 255 ta belgidan oshmasligi kerak.',
+            
+            'author.required' => 'Muallif nomi majburiy.',
+            'author.string' => 'Muallif nomi faqat harflardan iborat bo‘lishi kerak.',
+            'author.max' => 'Muallif nomi 255 ta belgidan oshmasligi kerak.',
+            
+            'price.required' => 'Narx majburiy.',
+            'price.numeric' => 'Narx faqat raqam bo‘lishi kerak.',
+        ];
     }
 }

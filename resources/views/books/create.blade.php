@@ -8,16 +8,28 @@
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Kitob nomi</label>
-            <input type="text" class="form-control" name="title" required>
+            <input type="text" class="form-control" name="title" value="{{ old('title') }}" >
+            @error('title')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
+
         <div class="mb-3">
             <label for="author" class="form-label">Muallif</label>
-            <input type="text" class="form-control" name="author" required>
+            <input type="text" class="form-control" name="author" value="{{ old('author') }}" >
+            @error('author')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
+
         <div class="mb-3">
             <label for="price" class="form-label">Narxi</label>
-            <input type="number" class="form-control" name="price" required>
+            <input type="number" class="form-control" name="price" value="{{ old('price') }}" >
+            @error('price')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
+
         <button type="submit" class="btn btn-success">Saqlash</button>
     </form>
 @endsection
